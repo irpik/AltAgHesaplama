@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Anasayfa</title>
+</head>
+<body>
+    
+    <div class="container-fluid">
+        <!--Header-->
+        <div class="row" id="header">
+            <div class="col">
+                <h1 class="w-100 p-4 text-center bg-dark text-warning">
+                    <b>Alt Ağ Hesaplama</b></h1>
+            </div>
+        </div>
+
+        <!--Main and Menu-->
+        <div class="row">
+            <div class="col">
+                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                    <a class="navbar-brand d-md-none" href="#">Kategoriler</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                      <ul class="navbar-nav">
+                        <li class="nav-item">
+                          <a class="nav-link" href="index.html">Anasayfa</a>
+                        </li>
+                        <li class="nav-item ">
+                            <span class="nav-link d-none d-md-block text-warning"><b>|</b></span>
+                        </li>
+                        <li class="nav-item">
+                          <a id="konuSec1" class="nav-link" href="hostBilgisi.html"> Host Bilgisi</a>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-link d-none d-md-block text-warning"><b>|</b></span>
+                        </li>
+                        <li class="nav-item">
+                          <a id="konuSec2" class="nav-link" href="altaglaraBolme.html">Alt Ağlara Bölme</a>
+                        </li>  
+                        <li class="nav-item">
+                            <span class="nav-link d-none d-md-block text-warning"><b>|</b></span>
+                        </li> 
+                        <li class="nav-item">
+                            <a id="konuSec3" class="nav-link" href="degiskenUzunlukluAltaglar.html">Değişken Uzunluklu Alt Ağlara Bölme</a>
+                        </li> 
+                        <li class="nav-item">
+                          <span class="nav-link d-none d-md-block text-warning"><b>|</b></span>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="iletisim.html">İletişim</a>
+                        </li>   
+                      </ul>
+                    </div>  
+                  </nav>
+            </div> 
+        </div>
+
+        <!--Konular-->
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col mb-3">
+                    
+                    <p><h3 class="text-center text-danger">IPv4 Adres Sınıfları</h3></p>
+                    <p>
+                        &nbsp&nbsp&nbsp&nbsp IP adresi (İnternet Protokol adresi), TCP/IP (İletim Kontrol 
+                        Protokolü/İnternet Protokolü) standardını kullanan bir ağdaki 
+                        cihazların birbirini tanımak,  iletişim kurmak ve veri alışverişinde 
+                        bulunmak için kullandıkları benzersiz rakamlar topluluğudur. 
+                        İnternet üzerinde bulunan her cihazın kendisine  tahsis edilen 
+                        bir adresi olması gerekir.  IPv4 ve IPv6 olmak üzere iki tür İnternet 
+                        Protokolü bulunmaktadır.
+                    </p>
+                    <p>
+                        &nbsp&nbsp&nbsp&nbsp IPv4 halen kullanılmakta olan standart İnternet protokolüdür 
+                        ve 8 bitlik 4 gruptan oluşur. Gruplar 0 ila 255 arasında değerler 
+                        alır. IPv4 protokolünde ki bir adres 1.0.0.0 ila 255.255.255.255 
+                        aralığındadır. Bu protokol kullanılarak 4 milyardan fazla adres 
+                        üretilebilmektedir.
+                    </p>
+                    <p>
+                        <h5 class="text-success">Ayrılmış IP Adresleri</h5>
+                        Bazı IP adresleri özel kullanım için ayrılmıştır. Bunlar yerel ağlar için kullanılır.
+                        <table class="table table-striped w-50 my-3">
+                            <thead>
+                              <tr>
+                                <th scope="col">BAŞLANGIÇ</th>
+                                <th scope="col">BİTİŞ</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>10.0.0.0</td>
+                                <td>10.255.255.255</td>
+                              </tr>
+                              <tr>
+                                <td>127.0.0.0</td>
+                                <td>127.255.255.255</td>
+                              </tr>
+                              <tr>
+                                <td>172.16.0.0</td>
+                                <td>172.31.255.255</td>
+                              </tr>
+                              <tr>
+                                <td>192.168.0.0</td>
+                                <td>192.168.255.255</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </p>
+                    <p>
+                        <h5 class="text-info">A Sınıfı Adres (1-126)</h5>
+                        İlk oktetin ilk biti her zaman 
+                        0 (sıfır) olarak ayarlanır bu nedenle ilk oktet 1 ila 127 
+                        (0000001-01111111) arasındadır.  A sınıfı adresler 1.x.x.x 
+                        ila 126.x.x.x arasındaki IP adreslerini içerir. 127.x.x.x IP 
+                        aralığındaki IP adresleri özeldir ve internet üzerinde ki herhangi 
+                        bir bilgisayara verilmez.  Bu sınıf 126 (2^7-2) adet network ve 
+                        16777214 (2^24-2) adet host adresine sahiptir.
+                    </p>
+                    <p>
+                        <h5 class="text-info">B Sınıfı Adres (128-191)</h5>
+                        B sınıfına ait olan birIP adresinde ilk oktetin ilk iki biti  
+                        10 olarak ayaralanır bu nedenle ilk oktet 128 ila 191 
+                        (1000001-10111111) arasındadır.  Bu sınıfa ait varsayılan 
+                        alt ağ maskesi 255.255.x.x’dir. B sınıfına ait 16384 (2^4) adet 
+                        network ve 65534 (2^16-2) adet host adresine sahiptir.
+                    </p>
+                    <p>
+                        <h5 class="text-info">C Sınıfı Adres (192-223)</h5>
+                        C sınıfına ait IP adresinin ilk 
+                        oktetinin ilk 3 biti 110 olarak ayarlanmıştır bu nedenle 
+                        ilk oktet 192 ila 223 (11000000-11000000) aralığındadır. Varsayılan 
+                        alt ağ maskesi 255.255.255.x’dir. Bu sınıfa ait 2097152 (2^21) adet 
+                        network ve  254 (2^8-2) adet host adresine sahiptir.
+                    </p>
+                    <p>
+                        <h5 class="text-danger">D Sınıfı Adres (224-239)</h5>
+                        D sınıfı IP adreslerinde ilk oktetin ilk dört biti 1110 olarak 
+                        ayarlanmıştır. Bu sınıfa ait IP adresleri 224.0.0.0 ila 239.255.255 
+                        (11100000-11101111) arasında değerler alır. D sınıfı herhangi bir 
+                        alt ağ maskesine sahip degildir.
+                    </p>
+                    <p>
+                        <h5 class="text-danger">E Sınıfı Adres (240-255)</h5>
+                        Bu IP sınıfı sadece AR-GE veya eğitim amaçlı 
+                        deneysel çalışmalara ayrılmıştır. Bu sınıfta ki IP adresleri 
+                        240.0.0.0 ila 255.255.255.254 arasında değer almaktadır.  
+                        Çoklu yayın (Multicast) için ayarlanmıştır. D sınıfında olduğu 
+                        gibi bu IP sınıfı da herhangi bir alt ağ maskesine sahip değildir.
+                    </p>
+                </div> 
+            </div>
+        </div>
+
+
+        <!--Footer-->
+        <div class="row">
+          <div class="col bg-dark py-4 text-center text-warning">
+            <p>©Telif Hakkı 2022 ornekhostadi.com</p>
+          </div>
+        </div>
+    </div>
+            
+
+    
+ <!-- jQuery library -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+ <!-- Popper JS -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+ <!-- Latest compiled JavaScript -->
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>

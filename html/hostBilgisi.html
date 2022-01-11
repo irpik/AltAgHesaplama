@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Host Bilgisi</title>
+
+</head>
+<body>
+    
+    <div class="container-fluid">
+        <!--Header-->
+        <div class="row" id="header">
+            <div class="col">
+                <h1 class="w-100 p-4 text-center bg-dark text-warning">
+                    <b>Alt Ağ Hesaplama</b></h1>
+            </div>
+        </div>
+
+        <!--Main and Menu-->
+        <div class="row">
+            <div class="col">
+                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                    <a class="navbar-brand d-md-none" href="#">Kategoriler</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                      <ul class="navbar-nav">
+                        <li class="nav-item">
+                          <a class="nav-link" href="index.html">Anasayfa</a>
+                        </li>
+                        <li class="nav-item ">
+                            <span class="nav-link d-none d-md-block text-warning"><b>|</b></span>
+                        </li>
+                        <li class="nav-item">
+                          <a id="konuSec1" class="nav-link" href="hostBilgisi.html"> Host Bilgisi</a>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-link d-none d-md-block text-warning"><b>|</b></span>
+                        </li>
+                        <li class="nav-item">
+                          <a id="konuSec2" class="nav-link" href="altaglaraBolme.html">Alt Ağlara Bölme</a>
+                        </li>  
+                        <li class="nav-item">
+                            <span class="nav-link d-none d-md-block text-warning"><b>|</b></span>
+                        </li> 
+                        <li class="nav-item">
+                            <a id="konuSec3" class="nav-link" href="degiskenUzunlukluAltaglar.html">Değişken Uzunluklu Alt Ağlara Bölme</a>
+                        </li>   
+                        <li class="nav-item">
+                            <span class="nav-link d-none d-md-block text-warning"><b>|</b></span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="iletisim.html">İletişim</a>
+                        </li>
+                      </ul>
+                    </div>  
+                  </nav>
+            </div> 
+        </div>
+
+        <!--Konular-->
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col mb-3">
+                    
+                    <form action="#">
+                        <div class="row">
+                            <div class="col text-center">
+                                <label class="text-warning "><b>İp Adresi</b></label> <br>
+                                <input type="number" class="inputIp" id="hbInput1" min="1" max="255" placeholder="192" required>
+                                <label><b>.</b></label>
+                                <input type="number" class="inputIp" id="hbInput2" min="0" max="255" placeholder="168" required>
+                                <label><b>.</b></label>
+                                <input type="number" class="inputIp" id="hbInput3" min="0" max="255" placeholder="1" required>
+                                <label><b>.</b></label>
+                                <input type="number" class="inputIp" id="hbInput4" min="0" max="255" placeholder="0" required>
+                                <label><b>/</b></label>
+                                <input type="number" class="inputIp" id="hbInput5" min="8" max="30" placeholder="24" required>
+                            </div>
+                        </div> 
+                        <div class="row">
+                            <div class="col text-center">
+                                <input type="button" class="hesaplaBtn btn btn-success my-3 px-4" onclick="hesapla()" value="Hesapla">
+                            </div>
+                        </div>
+                    </form>
+                    <!--Hata Mesaj divi-->
+                    <div class="row">
+                        <div class="col text-center text-danger">
+                            <b id="hataMesajı"></b>
+                        </div>
+                    </div>
+                    <!--Cevap Divi-->
+                    <div class="row" id="konu1Cevap">
+                        <div class="col mx-auto my-3">
+                            <p class="text-info text-center"><strong>Cevap Tablosu</strong></p>
+                            <table class="table table-striped">
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Network Adresi:</th>
+                                        <td id="networkAdresi"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">İlk İp:</th>
+                                        <td id="ilkIp"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Son İp:</th>
+                                        <td id="sonIp"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Broadcast Adresi:</th>
+                                        <td id="broadcastAdresi"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Alt Ağ Maskesi</th>
+                                        <td id="altAgMaskesi"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Host Sayısı</th>
+                                        <td id="hostSayisi"></td>
+                                    </tr>
+                                </tbody>
+                              </table>
+                        </div>
+                    </div>
+                    <!--Örnek Soru-->
+                    <div class="row">
+                        <div class="col mx-auto">
+                            <table class="table table-striped mt-1">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th class="text-danger" colspan="2"><b>Örnek 1: 192.168.1.10/24</b></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td scope="row" colspan="2">Network adresi bulunur iken  
+                                            IP adresi  ve Alt ağ maskesi VE (AND) işlemine tabi 
+                                            tutulursa ağ adresi bulunmuş olur.
+                                            (ikilik sayı sistemi kullanılarak ve(and) işlemi yapılarak)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Network Adresi:</th>
+                                        <td>192.168.1.0</td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row" colspan="2">
+                                        İlk ip adresi network ip adresinden bir fazla olan ip'dir.
+                                    </td>
+                                    </tr>
+                                    <tr>  
+                                        <th scope="row">İlk İp:</th>
+                                        <td>192.168.1.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row" colspan="2">
+                                            Son ip adresi ve Broadcast adresini bulurken soruda 
+                                            verilen ip adresinin sınıfına bakılır. İp adresi 192 ile 
+                                            başladığı için C sınıfı bir ip'dir. C sınıfı bir ip'de her 
+                                            bloğunda toplam 256 (0-255) tane ip vardır. Son ip numarası 
+                                            olan 255 (192.168.1.255) broadcast adresi olur. Son ip ise 
+                                            broadcast'den bir önceki olan 192.168.1.254 olur.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Son İp:</th>
+                                        <td>192.168.1.254</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Broadcast Adresi:</th>
+                                        <td>192.168.1.255</td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row" colspan="2">
+                                            C sınıfı ip adresinin varsayılan alt ağ maskesi 
+                                            255.255.255.0 dır. İkilik sistemde karşılığı ise :
+                                            11111111.11111111.11111111.00000000 . Soruda da ip
+                                            adresinin sonunda /24 yazıldığı için varsayılan alt
+                                            ağ maskesi kullanılır.
+                                    </td>
+                                    <tr>
+                                        <th scope="row">Alt Ağ Maskesi</th>
+                                        <td>255.255.255.0</td>
+                                    </tr>
+                                </tbody>
+                              </table>
+                              <table class="table table-striped my-5">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th class="text-warning" colspan="2"><b>Örnek 1: 192.168.100.0/25</b></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td scope="row" colspan="2">Network adresi bulunur iken  
+                                            IP adresi  ve Alt ağ maskesi VE (AND) işlemine tabi 
+                                            tutulursa ağ adresi bulunmuş olur.
+                                            (ikilik sayı sistemi kullanılarak ve(and) işlemi yapılarak)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Network Adresi:</th>
+                                        <td>192.168.100.0</td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row" colspan="2">
+                                        İlk ip adresi network ip adresinden bir fazla olan ip'dir.
+                                    </td>
+                                    </tr>
+                                    <tr>  
+                                        <th scope="row">İlk İp:</th>
+                                        <td>192.168.100.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row" colspan="2">
+                                            Son ip adresi ve Broadcast adresini bulurken soruda 
+                                            verilen ip adresinin sınıfına bakılır. İp adresi 192 ile 
+                                            başladığı için C sınıfı bir ip'dir. C sınıfı bir ip'de her 
+                                            bloğunda toplam 256 (0-255) tane ip vardır. Alt ağ maskesi 255.255.255.128 olduğu için kullanılabilir host biti sayısı 7 bit olur. 2^7 den 128 değerini elde ederiz ve 1 düşük değer bize broadcast adresini verir (192.168.100.127). Son ip ise broadcast adresinden bir önceki ip adresidir (192.168.100.126).
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Son İp:</th>
+                                        <td>192.168.100.126</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Broadcast Adresi:</th>
+                                        <td>192.168.100.127</td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row" colspan="2">
+                                            C sınıfı ip adresinin varsayılan alt ağ maskesi 
+                                            255.255.255.0 dır. İkilik sistemde karşılığı ise :
+                                            11111111.11111111.11111111.00000000 . Soruda da ip
+                                            adresinin sonunda /25 yazıldığı için 25. biti de 1 yaparız
+                                            ve alt ağ maskesi bulunmuş olur. 11111111.11111111.11111111.10000000
+                                            olur ve onluk karşılığı 255.255.255.128 dir.
+                                    </td>
+                                    <tr>
+                                        <th scope="row">Alt Ağ Maskesi</th>
+                                        <td>255.255.255.128</td>
+                                    </tr>
+                                </tbody>
+                              </table>
+                        </div>
+                    </div>
+
+                </div> 
+            </div>
+        </div>
+
+
+        <!--Footer-->
+        <div class="row">
+            <div class="col bg-dark py-4 text-center text-warning">
+                <p>©Telif Hakkı 2022 ornekhostadi.com</p>
+            </div>
+        </div>
+    </div>
+            
+
+    
+ <!-- jQuery library -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+ <!-- Popper JS -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+ <!-- Latest compiled JavaScript -->
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+ <!--JS-->
+ <script src="/js/hostBilgisi.js"></script>
+
+</body>
+</html>

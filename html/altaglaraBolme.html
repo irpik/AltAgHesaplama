@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Alt Ağlara Bölme</title>
+</head>
+<body>
+    
+    <div class="container-fluid">
+        <!--Header-->
+        <div class="row" id="header">
+            <div class="col">
+                <h1 class="w-100 p-4 text-center bg-dark text-warning">
+                    <b>Alt Ağ Hesaplama</b></h1>
+            </div>
+        </div>
+
+        <!--Main and Menu-->
+        <div class="row">
+            <div class="col">
+                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                    <a class="navbar-brand d-md-none" href="#">Kategoriler</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                      <ul class="navbar-nav">
+                        <li class="nav-item">
+                          <a class="nav-link" href="index.html">Anasayfa</a>
+                        </li>
+                        <li class="nav-item ">
+                            <span class="nav-link d-none d-md-block text-warning"><b>|</b></span>
+                        </li>
+                        <li class="nav-item">
+                          <a id="konuSec1" class="nav-link" href="hostBilgisi.html"> Host Bilgisi</a>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-link d-none d-md-block text-warning"><b>|</b></span>
+                        </li>
+                        <li class="nav-item">
+                          <a id="konuSec2" class="nav-link" href="altaglaraBolme.html">Alt Ağlara Bölme</a>
+                        </li>  
+                        <li class="nav-item">
+                            <span class="nav-link d-none d-md-block text-warning"><b>|</b></span>
+                        </li> 
+                        <li class="nav-item">
+                            <a id="konuSec3" class="nav-link" href="degiskenUzunlukluAltaglar.html">Değişken Uzunluklu Alt Ağlara Bölme</a>
+                        </li>  
+                        <li class="nav-item">
+                            <span class="nav-link d-none d-md-block text-warning"><b>|</b></span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="iletisim.html">İletişim</a>
+                        </li> 
+                      </ul>
+                    </div>  
+                  </nav>
+            </div> 
+        </div>
+
+        <!--Konular-->
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col mb-3" id="orta">
+                    
+                    <!--İnput alanı-->
+                    <div class="row">
+                        <div class="col text-center">
+                            <form action="/php/altaglaraBolmeHesap.php" method="post" target="_blank">
+                                <label class="text-warning "><b>İp Adresi </b></label> <br>
+                                <input type="number" class="inputIp" name="altAgId1" min="1" max="255" placeholder="192" required>
+                                <label><b>.</b></label>
+                                <input type="number" class="inputIp" name="altAgId2" min="0" max="255" placeholder="168" required>
+                                <label><b>.</b></label>
+                                <input type="number" class="inputIp" name="altAgId3" min="0" max="255" placeholder="1" required>
+                                <label><b>.</b></label>
+                                <input type="number" class="inputIp" name="altAgId4" min="0" max="255" placeholder="0" required>
+                                <br>
+                                <label class="text-info "><b>Kaç Alt Ağa Bölünecek: </b></label>
+                                <select  id="altAgSayisi" class="inputIp2" name="altAgSayisi">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="4">4</option>
+                                    <option value="8">8</option>
+                                    <option value="16">16</option>
+                                    <option value="32">32</option>
+                                    <option value="64">64</option>
+                                    <option value="128">128</option>
+                                    <option value="256">256</option>
+                                    <option value="512">512</option>
+                                    <option value="1024">1024</option>
+                                    <option value="2048">2048</option>
+                                    <option value="4096">4096</option>
+                                    <option value="8192">8192</option>
+                                    <option value="16384">16384</option>
+                                    <option value="32768">32768</option>
+                                    <option value="65536">65536</option>
+                                    <option value="131072">131072</option>
+                                    <option value="262144">262144</option>
+                                    <option value="524288">524288</option>
+                                    <option value="1048576">1048576</option>
+                                    <option value="2097152">2097152</option>
+                                    <option value="4194304">4194304</option> 
+                                </select>
+                                <br>
+                                <input type="submit" id="altAgBolme" class="hesaplaBtn btn btn-success my-3 px-4" value="Hesapla">
+                            </form>
+                        </div>
+                    </div>
+
+                    <!--Konu anlatımı-->
+                    <div class="row">
+                    <div class="col mt-3">
+                        <!--C sınıfı-->
+                        <h5 class="text-danger">C Sınıfı Alt Ağların Oluşturulması</h5>
+                        <p>Alt ağlara bölme işlemi için alt ağ maskesinde bulunan cihaz 
+                        bitlerini ağ adresi biti olarak kullandığımızı artık öğrenmiş 
+                        bulunmaktayız. C sınıfı bir alt ağ maskesine alt ağ oluşturabilmek 
+                        için 8 adet bit bulunmaktadır fakat ağ adresi ve yayın adresi için 
+                        en az iki adres olacağına göre en küçük alt ağımızda 4 adres bulunmalıdır. 
+                        Yani C sınıfı bir IP adresinden sadece 6 adet bit ödünç alabiliriz. 
+                        Bunu bir tablo ile ifade edelim.</p>
+                        <div class="row">
+                            <img class="w-100 col-md-7" src="/images/c.png" alt="c">
+                            <img class="w-100 col-md-7" src="/images/c1.png" alt="c1">
+                        </div>
+                        <p>NOT: Tabloda gösterilen n sayısı ödünç alınan bitleri, m sayısı ise cihaz için
+                            kullanılabilecek olan bitleri ifade etmektedir.</p>
+                        <p>Tabloda gösterildiği gibi C sınıfı bir IP adresi alt ağa bölünmediği takdirde 28
+                            -2=254
+                            adet, 2 alt ağa bölündüğünde her bir alt ağda 126 toplamda 252 adet, 4 alt ağa bölündüğünde
+                            her bir alt ağda 62 toplamda 248 adet vb. IP bulundurabilmektedir. </p>
+                        <!--B sınıfı-->
+                        <h5 class="text-danger">B Sınıfı Alt Ağların Oluşturulması</h5>
+                        <p>B sınıfı bir alt ağ maskesinde alt ağ oluşturabilmek için 16 adet bit bulunmaktadır.</p>
+                        <div class="row">
+                            <img class="w-100 col-md-7" src="/images/b.png" alt="b">
+                            <img class="w-100 col-md-7" src="/images/b1.png" alt="b1">
+                        </div>
+                        <p>B sınıfı bir IP adresini alt ağlara bölme işleminde C sınıfında olduğu gibi,en küçük alt
+                            ağda en az iki cihaz olması gerektiği için, 14 bit ödünç alınabilmektedir. </p>
+                        <!--A sınıfı-->
+                        <h5 class="text-danger">A Sınıfı Alt Ağların Oluşturulması</h5>
+                        <p>A sınıfı bir alt ağ maskesinde alt ağ oluşturabilmek için 24 adet bit bulunmaktadır</p>
+                        <div class="row">
+                            <img class="w-100 col-md-7" src="/images/a.png" alt="a">
+                            <img class="w-100 col-md-7" src="/images/a1.png" alt="a1">
+                        </div>
+                    </div>
+                    </div>
+
+                </div> 
+            </div>
+        </div>
+
+
+        <!--Footer-->
+        <div class="row">
+            <div class="col bg-dark py-4 text-center text-warning">
+                <p>©Telif Hakkı 2022 ornekhostadi.com</p>
+            </div>
+        </div>
+    </div>
+            
+
+    
+ <!-- jQuery library -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+ <!-- Popper JS -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+ <!-- Latest compiled JavaScript -->
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+
+

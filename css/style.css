@@ -1,0 +1,29 @@
+/*konu1*/
+.inputIp{
+    border: 3px solid rgb(216, 166, 92);
+    border-radius: 10%;
+    color: rgb(0, 0, 0);
+    outline: none;
+    width: 3.5em;
+}
+.inputIp:focus{
+    box-shadow: 1px 4px 7px rgb(216, 166, 92);
+}
+
+.inputIp2{
+    border: 3px solid rgb(92, 171, 216);
+    border-radius: 10%;
+    color: rgb(0, 0, 0);
+    outline: none;
+    width: 5.5em;
+}
+.inputIp2:focus{
+    box-shadow: 1px 4px 7px rgb(92, 171, 216);
+}
+
+.hesaplaBtn:focus{
+    box-shadow: 1px 4px 7px rgb(96, 216, 92);
+}
+.hesaplaBtn:hover{
+    box-shadow: 1px 4px 7px rgb(96, 216, 92);
+}
